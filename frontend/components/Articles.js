@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
 import PT from 'prop-types'
+import axios from 'axios'
 
 export default function Articles(props) {
   // ✨ where are my props? Destructure them here
@@ -15,8 +16,13 @@ export default function Articles(props) {
   // we should render a Navigate to login screen (React Router v.6)
 
   useEffect(() => {
+    axios.get('http://localhost:9000/api/articles')
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
     // ✨ grab the articles here, on first render only
   })
+
+  
 
   return (
     // ✨ fix the JSX: replace `Function.prototype` with actual functions
